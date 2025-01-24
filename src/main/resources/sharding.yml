@@ -8,6 +8,7 @@ dataSources:
     password: password
     maxPoolSize: 2
     minPoolSize: 2
+    schema: schema_poc
   ds1:
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
     driverClassName: org.postgresql.Driver
@@ -16,7 +17,7 @@ dataSources:
     password: password
     maxPoolSize: 2
     minPoolSize: 2
-
+    schema: schema_poc
 rules:
   - !SHARDING
     tables:
