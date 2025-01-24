@@ -1,0 +1,28 @@
+x-environment:
+  TZ: EST5EDT
+  _JAVA_OPTIONS: -Xms32m -Xmx256m -Xss128k
+
+
+services:
+
+  postgres:
+    image: ghcr.io/dbsystel/postgresql-partman
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRESQL_PASSWORD: password
+    volumes:
+      - ./db_init/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5432:5432
+
+  postgres1:
+    image: ghcr.io/dbsystel/postgresql-partman
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRESQL_PASSWORD: password
+    volumes:
+      - ./db_init/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5433:5432
